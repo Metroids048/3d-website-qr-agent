@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>官网二维码工作台</title>
+<link rel="stylesheet" href="/page.css">
+<script defer src="/workbench.js"></script>
+</head>
+<body>
+<header class="site-bar"><a class="home" href="/">二维码工作台</a><span class="local-tag">本地运行</span></header>
+<main class="shell workbench">
+<section class="intro">
+<h1>官网二维码<br>工作台</h1>
+<p class="lede">通过 Agent 对话制作拖至 90° 可扫码的官网组件，也可在此试用早期立体样式。</p>
+<div class="button-row"><a class="primary" href="/agent">进入 Agent 对话</a></div>
+</section>
+<form class="card upload-form" id="build-form" action="/api/build">
+<h2>制作早期样式预览</h2>
+<div class="field"><label for="purpose">用途</label><select id="purpose" name="purpose">
+<option value="general">通用扫码组件</option><option value="wechat-follow">企业官网 · 微信公众号关注</option></select></div>
+<div class="field"><label for="qr-source">二维码来源</label><select id="qr-source">
+<option value="image">上传已有二维码</option><option value="url">输入网址生成</option><option value="text">输入文字生成</option></select></div>
+<div class="field" id="qr-field"><label for="qr">二维码图</label><input type="file" id="qr" name="qr" accept="image/png,image/jpeg" required aria-describedby="qr-help"><small id="qr-help">PNG 或 JPEG，8 MiB 以内。支持标准 21×21 至 65×65 二维码。</small></div>
+<div class="field" id="url-field" hidden><label for="url">扫码后打开的网址</label><input id="url" name="url" type="text" inputmode="url" spellcheck="false" maxlength="512" placeholder="https://example.com" disabled></div>
+<div class="field" id="payload-field" hidden><label for="payload-text">扫码后显示的文字</label><textarea id="payload-text" name="payloadText" rows="3" maxlength="512" disabled></textarea></div>
+<div class="field"><label for="shape">展示造型</label><select id="shape" name="preset">
+<option value="photo">上传图片生成浅浮雕</option><option value="nasa">NASA 徽章 · 铜棕浮雕</option><option value="volume">上传图 · 按轮廓生成体积</option><option value="planet">环形行星</option><option value="brick">2×4 积木</option><option value="mascot">上传图 · 球面机器人</option><option value="bottle">上传图 · 回转瓶</option><option value="character">文字 · 原创数字人或狐狸</option></select></div>
+<div class="field"><label for="palette">平面码配色</label><select id="palette" name="palette">
+<option value="">默认配色</option><option value="image">从主体自动取色</option><option value="night-flight">夜航 · 深蓝渐变青绿与暖铜</option><option value="dropbox-blue">文件台 · 品牌蓝、海军蓝与梅紫</option><option value="pixel-amber">像素机 · 焦糖黄、赭金与炭棕</option><option value="instant-film">相纸 · 石墨紫、焦橙与梅红</option><option value="slate-steel">石墨灰与钢蓝</option><option value="webb-copper">NASA · 咖啡棕、琥珀铜与赭金</option><option value="minifig-primary">人仔 · 宝蓝、红与金黄</option><option value="kitty">Hello Kitty · 白底蓝红</option><option value="saturn-gold">土星 · 焦糖棕与环带金</option><option value="navy-red">白底 · 深蓝和红</option><option value="umber-rust">白底 · 深棕和赭色</option><option value="brick-red">白底 · 深红和砖红</option></select></div>
+<div class="field"><label for="effect">展示动效</label><select id="effect" name="effect">
+<option value="">自动</option><option value="flight-grid">品牌标志 · 飞行灯阵</option><option value="file-stack">品牌标志 · 文件错层滑出</option><option value="crank-pixels">手摇像素台 · 摇柄与屏幕联动</option><option value="print-development">Polaroid Flip · 出片显影</option><option value="brand-sheen">品牌标志 · 金属侧光</option><option value="product-studio">商品 · 棚拍光带</option><option value="none">关闭额外动效</option>
+</select></div>
+<div class="field" id="subject-field"><label for="subject">主体图</label><input type="file" id="subject" name="subject" accept="image/png,image/jpeg" required aria-describedby="subject-help"><small id="subject-help">透明标志或纯背景主体轮廓更清楚。</small></div>
+<div class="field" id="brief-field" hidden><label for="brief">角色描述</label><textarea id="brief" name="brief" rows="3" maxlength="240" placeholder="青岚，青绿色外套的展览接待员" disabled></textarea></div>
+<div class="field"><label for="title">扫码位名称</label><input id="title" name="title" type="text" maxlength="70" placeholder="例如：扫码了解土星"></div>
+<div class="field"><label for="placement">原网页地址或扫码位说明</label><input id="placement" name="placement" type="text" maxlength="180" placeholder="例如：展览官网页脚"></div>
+<div class="field" id="artwork-field"><label><input type="checkbox" id="artwork" name="artwork"> 同时生成 2D 艺术码</label><small>复用主体图和扫码内容，输出独立艺术码 PNG 与读码记录。</small></div>
+<button class="primary" id="build-button" type="submit">生成扫码组件</button>
+<p id="build-status" role="status" hidden></p>
+<a id="backup-file" class="secondary" download hidden>下载上传的原图</a>
+</form>
+</main>
+</body>
+</html>

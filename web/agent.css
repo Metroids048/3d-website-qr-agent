@@ -1,0 +1,19 @@
+.agent-shell { width:min(100% - 36px, 760px); margin:clamp(32px,7vw,86px) auto; }
+.agent-intro h1 { margin:0 0 16px; font-size:clamp(28px,6vw,53px); line-height:1.15; letter-spacing:-.04em; }
+.agent-intro p { color:#4c5969; font-size:1.05rem; line-height:1.7; max-width:40rem; }
+.agent-log { padding:0; list-style:none; display:grid; gap:12px; margin:24px 0; }
+.agent-turn { padding:16px 18px; border-radius:13px; background:#fff; border:1px solid #d9e4ef; overflow-wrap:anywhere; }
+.agent-turn.user { justify-self:end; max-width:92%; background:#e9f1ff; }
+.agent-turn p { margin:7px 0 0; white-space:pre-wrap; line-height:1.55; }
+.agent-files { display:flex; flex-wrap:wrap; gap:8px 14px; margin:14px 0 0; }
+.agent-files a { color:#103f9a; text-underline-offset:.22em; padding:4px 0; }
+.agent-form { display:grid; gap:10px; border:1px solid #c9d8ed; border-radius:16px; background:#fff; padding:clamp(14px,4vw,24px); }
+.agent-form textarea { width:100%; resize:vertical; }
+.agent-submit { display:flex; align-items:end; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.agent-submit input { display:block; max-width:100%; }
+.agent-submit label { display:block; margin-bottom:5px; }
+.agent-form p { margin:0; overflow-wrap:anywhere; }
+.agent-form p:empty { display:none; }
+
+#clear-attachments { justify-self:start; }
+#clear-attachments[hidden] { display:none; }

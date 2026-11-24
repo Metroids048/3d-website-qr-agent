@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>官网 3D 二维码 Agent</title>
+<link rel="stylesheet" href="/page.css">
+<link rel="stylesheet" href="/agent.css">
+<script defer src="/agent.js"></script>
+</head>
+<body>
+<header class="site-bar"><a class="home" href="/agent">官网 3D 二维码 Agent</a><a class="local-tag" href="/">打开工作台</a></header>
+<main class="agent-shell">
+<section class="agent-intro">
+<h1>让品牌形象变成可扫码的组件</h1>
+<p>发一张品牌形象、产品或 Logo 参考图，告诉我组件放在哪、扫码去哪。我会给你可拖拽的立体官网预览、嵌入组件和备用码。同一件立体造型转到 90° 时可以扫码。</p>
+</section>
+<ol class="agent-log" id="conversation" aria-label="对话记录" aria-live="polite"></ol>
+<form class="agent-form" id="agent-form">
+<label for="message">描述你的官网扫码位</label>
+<textarea id="message" rows="3" maxlength="2000" required placeholder="例如：用这张品牌图做官网扫码位，斜看能认出主体，拖到 90° 时能扫出附件的原码去向。"></textarea>
+<div class="agent-submit">
+<div><label for="attachments">添加参考图和原码</label><input id="attachments" type="file" accept="image/svg+xml,image/png,image/jpeg" multiple></div>
+<button class="primary" id="send" type="submit">发送</button>
+</div>
+<p id="attachment-text" class="caption"></p>
+<button type="button" id="clear-attachments" class="secondary" hidden>清除附件</button>
+<p class="caption">对话文字和主体缩略图由 Codex 处理，原二维码由本地读取。</p>
+<p id="agent-status" role="status" class="caption"></p>
+</form>
+</main>
+</body>
+</html>

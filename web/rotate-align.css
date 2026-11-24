@@ -1,0 +1,22 @@
+body { margin: 0; background: #f5f1e8; color: #24261f; font: 1rem/1.5 system-ui, sans-serif; }
+main { width: min(720px, 100% - 24px); margin: 24px auto; }
+header { display: flex; justify-content: space-between; align-items: start; gap: 12px; flex-wrap: wrap; }
+h1 { margin: 0; font-size: clamp(1.35rem, 5vw, 2rem); }
+p { margin: 6px 0 14px; }
+[data-rotate-terrain] { margin: 0 auto; max-width: 680px; }
+canvas { display: block; width: 100%; aspect-ratio: 1; border-radius: 14px; background: #fbf8f2; }
+canvas:focus-visible { outline: 2px solid #146159; }
+[data-state]:not([data-state="ready"]) canvas, [data-state]:not([data-state="ready"]) .terrain-controls { display: none; }
+[data-state="ready"] .terrain-fallback { display: none; }
+.terrain-fallback img { width: min(240px, 100%); }
+.terrain-controls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; margin: 10px 0; }
+.terrain-controls label { display: flex; flex: 1; gap: 8px; align-items: center; }
+.terrain-controls input { flex: 1; min-width: 75px; accent-color: #146159; }
+output { min-width: 3ch; font-variant-numeric: tabular-nums; }
+[data-aligned="true"] output { font-weight: 700; color: #146159; }
+button, .link { font: inherit; color: #194e47; border: 1px solid #a7a79b; background: #fffcf7; border-radius: 9px; padding: 6px 10px; }
+button[aria-pressed="true"] { background: #d5e7de; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.terrain-note { color: #55584d; font-size: .9rem; }
+body.embed { background: transparent; }
+body.embed main { width: min(680px, 100% - 12px); margin: 6px auto; }
